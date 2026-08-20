@@ -41,7 +41,7 @@ export default function Footer() {
               About
             </Link>
             <Link
-              href="/#projects"
+              href="/projects"
               className="text-[13px] text-stone-500 transition-colors hover:text-stone-900"
             >
               Projects

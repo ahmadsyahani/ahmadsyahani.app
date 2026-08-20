@@ -1,10 +1,42 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const stackSansNotch = localFont({
+  src: [
+    {
+      path: "./fonts/StackSansNotch-ExtraLight.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "./fonts/StackSansNotch-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/StackSansNotch-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/StackSansNotch-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/StackSansNotch-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/StackSansNotch-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-stack-sans",
   display: "swap",
 });
 
@@ -29,8 +61,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className} data-scroll-behavior="smooth">
-      <body>
+    <html
+      lang="en"
+      className={`${stackSansNotch.variable} font-sans`}
+      data-scroll-behavior="smooth"
+    >
+      <body className="font-sans antialiased">
         <SmoothScrolling>{children}</SmoothScrolling>
       </body>
     </html>

@@ -95,25 +95,49 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="relative hidden aspect-square items-center justify-center md:flex"
         >
-          {/* Main floating shape */}
+          {/* Main interactive container */}
           <motion.div
+            whileHover={{ scale: 1.02 }}
             animate={{
               y: [-10, 10, -10],
-              rotate: [0, 5, 0],
             }}
             transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
+              y: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+              scale: {
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+              },
             }}
-            className="relative h-64 w-64 rounded-[40px] bg-gradient-to-tr from-stone-50 to-stone-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/60 backdrop-blur-xl flex items-center justify-center"
+            className="group relative h-[320px] w-[320px] cursor-pointer"
           >
-            {/* Inner glass element */}
-            <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-white/40 backdrop-blur-md border border-white/50 shadow-lg" />
-            <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-2xl bg-gradient-to-br from-white/60 to-transparent backdrop-blur-lg border border-white/40 rotate-12 shadow-sm" />
-            
-            {/* Center sphere */}
-            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-stone-800 to-stone-600 shadow-[0_10px_30px_rgba(41,37,36,0.3)]" />
+            {/* Background glowing aura */}
+            <div className="absolute inset-0 rounded-full bg-stone-300/20 blur-[60px] transition-all duration-500 group-hover:bg-stone-300/40 group-hover:blur-[80px]" />
+
+            {/* Main glass card */}
+            <div className="absolute inset-4 rounded-[40px] border border-stone-200/60 bg-white/40 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-all duration-500 group-hover:border-stone-300/80 group-hover:bg-white/60 group-hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] overflow-hidden flex items-center justify-center">
+              
+              {/* Inner geometric shapes */}
+              <motion.div 
+                animate={{ rotate: 360 }} 
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 flex items-center justify-center opacity-60"
+              >
+                <div className="h-[220px] w-[220px] rounded-full border border-stone-300 border-dashed transition-all duration-500 group-hover:scale-105" />
+                <div className="absolute h-[160px] w-[160px] rounded-full border border-stone-200 transition-all duration-500 group-hover:scale-95" />
+              </motion.div>
+
+              {/* Central focal point */}
+              <div className="relative z-10 h-24 w-24 rounded-full bg-gradient-to-br from-stone-800 to-stone-600 shadow-[0_10px_30px_rgba(41,37,36,0.2)] transition-transform duration-500 group-hover:scale-110" />
+              
+              {/* Decorative accent elements */}
+              <div className="absolute -top-4 -right-4 h-28 w-28 rounded-full bg-stone-200/40 backdrop-blur-md border border-stone-100/50 transition-transform duration-700 ease-out group-hover:-translate-x-6 group-hover:translate-y-6" />
+              <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-[24px] rotate-12 bg-gradient-to-br from-white/60 to-transparent backdrop-blur-md border border-stone-100/50 transition-transform duration-700 ease-out group-hover:translate-x-8 group-hover:-translate-y-8" />
+            </div>
           </motion.div>
         </motion.div>
       </div>

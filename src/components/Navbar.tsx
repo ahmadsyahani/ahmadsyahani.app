@@ -31,7 +31,7 @@ const data = [
   {
     title: "Projects",
     icon: <Briefcase className="h-[50%] w-[50%]" />,
-    href: "/#projects",
+    href: "/projects",
   },
   {
     title: "About",

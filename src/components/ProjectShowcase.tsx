@@ -186,6 +186,22 @@ export default function ProjectShowcase() {
 
         {/* Bottom border for last item */}
         <div className="border-t border-stone-200" />
+
+        {/* View all projects button */}
+        <div className="mt-10 flex items-center justify-between">
+          <p className="text-[13px] text-stone-400 font-light">
+            Showing latest featured projects
+          </p>
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-[13px] font-medium text-stone-900 shadow-xs transition-all hover:bg-stone-900 hover:text-white hover:border-stone-900"
+          >
+            Explore all projects
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </div>
       </div>
     </section>
   );

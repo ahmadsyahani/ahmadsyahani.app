@@ -59,7 +59,7 @@ export default function ProjectPage({
             className="mb-8"
           >
             <Link
-              href="/#projects"
+              href="/projects"
               className="group inline-flex items-center gap-2.5 rounded-full border border-stone-200/60 bg-white/60 px-2 py-2 pr-5 text-[13px] font-medium tracking-[-0.01em] text-stone-600 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 hover:border-stone-300 hover:bg-white hover:text-stone-900 hover:shadow-[0_8px_20px_-8px_rgba(0,0,0,0.1)]"
             >
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-stone-100 text-stone-500 transition-colors duration-300 group-hover:bg-stone-200 group-hover:text-stone-900">
