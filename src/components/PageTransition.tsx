@@ -3,12 +3,17 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import GreetingLoader from "@/components/GreetingLoader";
 
 const routes: Record<string, string> = {
   "/": "Home",
   "/about": "About",
   "/projects": "Projects",
+  "/contact": "Contact",
 };
+
+// In-memory session tracking across client navigations
+let hasSeenIntro = false;
 
 export default function PageTransition({
   children,
@@ -24,6 +29,15 @@ export default function PageTransition({
     height: 0,
   });
 
+  const isHome = pathname === "/";
+
+  const [shouldShowGreeting, setShouldShowGreeting] = useState(() => {
+    if (typeof window === "undefined") return pathname === "/";
+    if (hasSeenIntro) return false;
+    const stored = sessionStorage.getItem("portfolio_greeting_seen");
+    return pathname === "/" && !stored;
+  });
+
   useEffect(() => {
     function resize() {
       setDimensions({
@@ -36,10 +50,20 @@ export default function PageTransition({
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  const handleGreetingComplete = () => {
+    hasSeenIntro = true;
+    try {
+      sessionStorage.setItem("portfolio_greeting_seen", "true");
+    } catch {
+      // ignore
+    }
+    setShouldShowGreeting(false);
+  };
+
   const w = dimensions.width;
   const h = dimensions.height;
 
-  // SVG Curve Paths
+  // SVG Curve Paths for standard route transitions
   const initialPath = `
     M 0 0 
     L ${w} 0 
@@ -61,11 +85,11 @@ export default function PageTransition({
   const curveVariants = {
     initial: {
       d: initialPath,
-      transition: { duration: 0.9, ease: easeCurve },
+      transition: { duration: 0.85, ease: easeCurve },
     },
     exit: {
       d: targetPath,
-      transition: { duration: 1.1, ease: easeCurve, delay: 0.25 },
+      transition: { duration: 1.0, ease: easeCurve, delay: 0.2 },
     },
   };
 
@@ -76,12 +100,11 @@ export default function PageTransition({
     },
     exit: {
       opacity: 0,
-      y: -30,
-      transition: { duration: 0.55, ease: easeCurve, delay: 0.1 },
+      y: -24,
+      transition: { duration: 0.5, ease: easeCurve, delay: 0.1 },
     },
   };
 
-  // Determine current page title
   const getPageTitle = (path: string) => {
     if (routes[path]) return routes[path];
     if (path.startsWith("/project/")) return "Project";
@@ -90,8 +113,13 @@ export default function PageTransition({
 
   return (
     <>
-      {/* SVG Curtain Overlay */}
-      {dimensions.width > 0 && (
+      {/* Multi-language Greeting Loader only on FIRST arrival to Home */}
+      {isHome && shouldShowGreeting && (
+        <GreetingLoader onComplete={handleGreetingComplete} />
+      )}
+
+      {/* Standard Route Transition curtain ONLY for subpage navigation (About, Projects, Project Details) */}
+      {!isHome && dimensions.width > 0 && (
         <div className="pointer-events-none fixed inset-0 z-[99999] h-screen w-screen">
           <motion.p
             variants={textVariants}
@@ -113,9 +141,13 @@ export default function PageTransition({
 
       {/* Page Content Animation */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+        transition={{
+          duration: 0.8,
+          ease: [0.16, 1, 0.3, 1],
+          delay: isHome && shouldShowGreeting ? 2.8 : 0.45,
+        }}
       >
         {children}
       </motion.div>

@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { projects } from "@/lib/data";
@@ -26,8 +25,6 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <Navbar />
-
       <main className="min-h-screen pt-28 pb-24 md:pt-36">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           {/* ════════════════════════════════════════════════════
@@ -214,7 +211,7 @@ export default function ProjectsPage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="rounded-full bg-stone-900 px-6 py-3 text-[14px] font-medium text-white shadow-sm transition-all hover:bg-stone-800 hover:shadow-md"
               >
                 Get in touch →

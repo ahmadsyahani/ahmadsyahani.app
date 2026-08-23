@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import ProjectShowcase from "@/components/ProjectShowcase";
@@ -14,8 +13,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
-
       <main>
         {/* ════════════════════════════════════════════════════
             HERO SECTION
@@ -36,7 +33,7 @@ export default function Home() {
               {/* Decorative background blurs */}
               <div className="absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-stone-200/50 blur-[80px]" />
               <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-stone-200/30 blur-[60px]" />
-              
+
               <div className="relative z-10 grid gap-12 md:grid-cols-[1fr_1.5fr] lg:gap-24 items-center">
                 <AnimatedSection className="flex flex-col items-start gap-8">
                   <h2 className="text-[36px] md:text-[48px] font-medium leading-[1.05] tracking-[-0.03em] text-stone-900">
@@ -48,18 +45,18 @@ export default function Home() {
                   {/* Profile Photo Slot */}
                   <div className="group relative w-[200px] md:w-[240px]">
                     {/* SVG 1: Bottom Frame Swoosh IN FRONT (Amber) */}
-                    <svg 
-                      className="absolute -inset-8 z-20 text-amber-400 pointer-events-none transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-105" 
-                      viewBox="0 0 250 300" 
-                      fill="none" 
+                    <svg
+                      className="absolute -inset-8 z-20 text-amber-400 pointer-events-none transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-105"
+                      viewBox="0 0 250 300"
+                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path 
-                        d="M 10,240 C 50,300 200,310 230,220 C 250,150 200,100 220,80" 
-                        stroke="currentColor" 
-                        strokeWidth="5" 
-                        strokeLinecap="round" 
-                        className="[stroke-dasharray:500] [stroke-dashoffset:500] group-hover:[stroke-dashoffset:0] transition-all duration-[1s] ease-in-out" 
+                      <path
+                        d="M 10,240 C 50,300 200,310 230,220 C 250,150 200,100 220,80"
+                        stroke="currentColor"
+                        strokeWidth="5"
+                        strokeLinecap="round"
+                        className="[stroke-dasharray:500] [stroke-dashoffset:500] group-hover:[stroke-dashoffset:0] transition-all duration-[1s] ease-in-out"
                       />
                     </svg>
 
@@ -78,7 +75,7 @@ export default function Home() {
                         className="[stroke-dasharray:300] [stroke-dashoffset:300] group-hover:[stroke-dashoffset:0] transition-all duration-700 ease-in-out"
                       />
                     </svg>
-                    
+
                     {/* SVG 3: Burst Bottom Left (Emerald) */}
                     <svg
                       className="absolute -left-6 -bottom-6 w-14 h-14 text-emerald-400 z-20 pointer-events-none transition-transform duration-700 group-hover:-rotate-45 group-hover:scale-110"

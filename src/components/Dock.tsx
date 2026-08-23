@@ -96,7 +96,7 @@ function Dock({
         height: height,
         scrollbarWidth: "none",
       }}
-      className="mx-2 flex max-w-full items-end overflow-x-auto pointer-events-auto"
+      className="mx-2 flex max-w-full items-end overflow-visible pointer-events-auto select-none"
     >
       <motion.div
         onMouseMove={({ pageX }) => {
@@ -108,7 +108,7 @@ function Dock({
           mouseX.set(Infinity);
         }}
         className={cn(
-          "mx-auto flex w-fit items-center gap-4 rounded-full border border-stone-200/60 bg-white/70 px-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md",
+          "mx-auto flex w-fit items-center gap-2 rounded-full border border-stone-200/70 bg-white/80 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] backdrop-blur-xl",
           className
         )}
         style={{ height: panelHeight }}
@@ -138,7 +138,7 @@ function DockItem({ children, className }: DockItemProps) {
   const widthTransform = useTransform(
     mouseDistance,
     [-distance, 0, distance],
-    [44, magnification, 44]
+    [40, magnification, 40]
   );
 
   const width = useSpring(widthTransform, spring);
@@ -152,12 +152,10 @@ function DockItem({ children, className }: DockItemProps) {
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       className={cn(
-        "relative inline-flex items-center justify-center",
+        "relative inline-flex items-center justify-center outline-none focus:outline-none focus-visible:outline-none select-none",
         className
       )}
-      tabIndex={0}
-      role="button"
-      aria-haspopup="true"
+      tabIndex={-1}
     >
       {Children.map(children, (child) =>
         cloneElement(child as React.ReactElement<any>, { width, isHovered })
@@ -190,7 +188,7 @@ function DockLabel({ children, className, ...rest }: DockLabelProps) {
           exit={{ opacity: 0, y: 0 }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-stone-200 bg-white px-2 py-0.5 text-[11px] font-medium text-stone-600 shadow-sm",
+            "absolute -top-7 left-1/2 w-fit whitespace-pre rounded-full border border-stone-200 bg-stone-900 px-2.5 py-0.5 text-[11px] font-medium text-white shadow-md pointer-events-none",
             className
           )}
           role="tooltip"

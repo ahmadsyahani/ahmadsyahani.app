@@ -120,10 +120,10 @@ export default function Hero() {
 
             {/* Main glass card */}
             <div className="absolute inset-4 rounded-[40px] border border-stone-200/60 bg-white/40 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-all duration-500 group-hover:border-stone-300/80 group-hover:bg-white/60 group-hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] overflow-hidden flex items-center justify-center">
-              
+
               {/* Inner geometric shapes */}
-              <motion.div 
-                animate={{ rotate: 360 }} 
+              <motion.div
+                animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 flex items-center justify-center opacity-60"
               >
@@ -133,7 +133,7 @@ export default function Hero() {
 
               {/* Central focal point */}
               <div className="relative z-10 h-24 w-24 rounded-full bg-gradient-to-br from-stone-800 to-stone-600 shadow-[0_10px_30px_rgba(41,37,36,0.2)] transition-transform duration-500 group-hover:scale-110" />
-              
+
               {/* Decorative accent elements */}
               <div className="absolute -top-4 -right-4 h-28 w-28 rounded-full bg-stone-200/40 backdrop-blur-md border border-stone-100/50 transition-transform duration-700 ease-out group-hover:-translate-x-6 group-hover:translate-y-6" />
               <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-[24px] rotate-12 bg-gradient-to-br from-white/60 to-transparent backdrop-blur-md border border-stone-100/50 transition-transform duration-700 ease-out group-hover:translate-x-8 group-hover:-translate-y-8" />

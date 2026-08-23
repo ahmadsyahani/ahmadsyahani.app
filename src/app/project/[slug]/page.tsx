@@ -4,7 +4,6 @@ import { use } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { projects } from "@/lib/data";
@@ -21,7 +20,6 @@ export default function ProjectPage({
   if (!project) {
     return (
       <>
-        <Navbar />
         <main className="flex min-h-[80vh] flex-col items-center justify-center">
           <h1 className="text-2xl font-semibold text-stone-900">
             Project not found
@@ -45,8 +43,6 @@ export default function ProjectPage({
 
   return (
     <>
-      <Navbar />
-
       <main className="pt-24">
 
 

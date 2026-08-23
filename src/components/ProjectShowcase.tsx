@@ -148,10 +148,9 @@ export default function ProjectShowcase() {
                       className={`
                         h-6 w-6 text-stone-400
                         transition-all duration-300 ease-out
-                        ${
-                          hoveredIndex === index
-                            ? "translate-x-0 translate-y-0 opacity-100"
-                            : "-translate-x-2 translate-y-2 opacity-0"
+                        ${hoveredIndex === index
+                          ? "translate-x-0 translate-y-0 opacity-100"
+                          : "-translate-x-2 translate-y-2 opacity-0"
                         }
                       `}
                     />

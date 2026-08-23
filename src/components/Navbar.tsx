@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Home, Briefcase, User, Mail } from "lucide-react";
 import { Dock, DockIcon, DockItem, DockLabel } from "@/components/Dock";
 import { personalInfo } from "@/lib/data";
@@ -22,71 +24,106 @@ function LinkedinIcon({ className }: { className?: string }) {
   );
 }
 
-const data = [
+const navItems = [
   {
     title: "Home",
-    icon: <Home className="h-[50%] w-[50%]" />,
+    icon: <Home className="h-[48%] w-[48%]" />,
     href: "/",
   },
   {
     title: "Projects",
-    icon: <Briefcase className="h-[50%] w-[50%]" />,
+    icon: <Briefcase className="h-[48%] w-[48%]" />,
     href: "/projects",
   },
   {
     title: "About",
-    icon: <User className="h-[50%] w-[50%]" />,
+    icon: <User className="h-[48%] w-[48%]" />,
     href: "/about",
   },
   {
     title: "Contact",
-    icon: <Mail className="h-[50%] w-[50%]" />,
-    href: "/#contact",
+    icon: <Mail className="h-[48%] w-[48%]" />,
+    href: "/contact",
   },
 ];
 
 const socials = [
   {
     title: "GitHub",
-    icon: <GithubIcon className="h-[50%] w-[50%]" />,
+    icon: <GithubIcon className="h-[48%] w-[48%]" />,
     href: personalInfo.github,
   },
   {
     title: "LinkedIn",
-    icon: <LinkedinIcon className="h-[50%] w-[50%]" />,
+    icon: <LinkedinIcon className="h-[48%] w-[48%]" />,
     href: personalInfo.linkedin,
   },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [delay, setDelay] = useState(2.9);
+
+  useEffect(() => {
+    const seen = sessionStorage.getItem("portfolio_greeting_seen");
+    if (seen) {
+      setDelay(0.15);
+    }
+  }, []);
+
   return (
-    <motion.div 
-      initial={{ y: 100, x: "-50%", opacity: 0 }}
-      animate={{ y: 0, x: "-50%", opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+    <motion.div
+      initial={{ y: 70, x: "-50%", opacity: 0, scale: 0.94, filter: "blur(6px)" }}
+      animate={{ y: 0, x: "-50%", opacity: 1, scale: 1, filter: "blur(0px)" }}
+      transition={{
+        duration: 1.0,
+        ease: [0.16, 1, 0.3, 1],
+        delay: delay,
+      }}
       className="fixed bottom-6 left-1/2 z-50 pointer-events-none"
     >
-      <Dock className="pointer-events-auto" distance={100} magnification={60} panelHeight={56}>
-        {data.map((item) => (
-          <DockItem key={item.title} className="aspect-square rounded-full">
-            <DockLabel>{item.title}</DockLabel>
-            <DockIcon>
-              <Link href={item.href} className="flex h-full w-full items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 transition-colors">
-                {item.icon}
-              </Link>
-            </DockIcon>
-          </DockItem>
-        ))}
-        
-        <div className="mx-2 flex h-full items-center">
-          <div className="h-3/5 w-[1px] bg-stone-200" />
+      <Dock className="pointer-events-auto" distance={90} magnification={58} panelHeight={52}>
+        {navItems.map((item) => {
+          const isActive =
+            item.href === "/"
+              ? pathname === "/"
+              : item.href.startsWith("/#")
+              ? false
+              : pathname?.startsWith(item.href);
+
+          return (
+            <DockItem key={item.title} className="aspect-square rounded-full">
+              <DockLabel>{item.title}</DockLabel>
+              <DockIcon>
+                <Link
+                  href={item.href}
+                  className={`flex h-full w-full items-center justify-center rounded-full transition-colors duration-200 outline-none focus:outline-none ${
+                    isActive
+                      ? "bg-stone-900 text-white shadow-xs"
+                      : "text-stone-500 hover:bg-stone-100 hover:text-stone-900"
+                  }`}
+                >
+                  {item.icon}
+                </Link>
+              </DockIcon>
+            </DockItem>
+          );
+        })}
+
+        <div className="mx-1 flex h-full items-center">
+          <div className="h-2/5 w-[1px] bg-stone-200" />
         </div>
 
         {socials.map((item) => (
           <DockItem key={item.title} className="aspect-square rounded-full">
             <DockLabel>{item.title}</DockLabel>
             <DockIcon>
-              <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex h-full w-full items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 transition-colors">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full w-full items-center justify-center rounded-full text-stone-500 hover:bg-stone-100 hover:text-stone-900 transition-colors duration-200 outline-none focus:outline-none"
+              >
                 {item.icon}
               </a>
             </DockIcon>

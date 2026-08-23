@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { personalInfo, experience, skills } from "@/lib/data";
@@ -10,8 +9,6 @@ import { personalInfo, experience, skills } from "@/lib/data";
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
-
       <main className="pt-24">
 
 
