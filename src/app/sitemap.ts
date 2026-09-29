@@ -1,12 +1,7 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { projects } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://ahmadsyahani.app',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ];
+  const paths = ["", "/about", "/projects", "/contact", ...projects.map(p => `/project/${p.id}`)];
+  return paths.map(path => ({ url: `https://ahmadsyahani.app${path}`, changeFrequency: "monthly", priority: path ? .7 : 1 }));
 }

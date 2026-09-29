@@ -9,7 +9,7 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
-    
+
     // Simulasi pengiriman form (karena belum ada backend API)
     // Nanti bisa diganti dengan fetch ke Formspree atau Resend
     setTimeout(() => {
@@ -71,9 +71,6 @@ export default function ContactForm() {
       >
         {status === "submitting" ? "Sending..." : "Send Message"}
       </button>
-      <p className="mt-2 text-center text-[12px] text-stone-400">
-        *This form is currently a UI demo. Connect to Formspree or Resend to make it functional.
-      </p>
     </form>
   );
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import GreetingLoader from "@/components/GreetingLoader";
+import { projects } from "@/lib/data";
 
 const routes: Record<string, string> = {
   "/": "Home",
@@ -97,19 +98,51 @@ export default function PageTransition({
     initial: {
       opacity: 1,
       y: 0,
+      scale: 1,
     },
     exit: {
       opacity: 0,
-      y: -24,
-      transition: { duration: 0.5, ease: easeCurve, delay: 0.1 },
+      y: -28,
+      scale: 0.96,
+      transition: { duration: 0.5, ease: easeCurve, delay: 0.15 },
     },
   };
 
-  const getPageTitle = (path: string) => {
-    if (routes[path]) return routes[path];
-    if (path.startsWith("/project/")) return "Project";
-    return "";
+  // Get dynamic transition information based on route / project
+  const getTransitionDetails = (path: string) => {
+    if (path.startsWith("/project/")) {
+      const slug = path.replace("/project/", "").split("/")[0].split("?")[0];
+      const found = projects.find((p) => p.id === slug);
+      if (found) {
+        return {
+          subtitle: `Case Study • ${found.year}`,
+          title: found.title,
+          tag: found.category,
+        };
+      }
+      return {
+        subtitle: "Case Study",
+        title: "Project Overview",
+        tag: "Selected Work",
+      };
+    }
+
+    if (routes[path]) {
+      return {
+        subtitle: "Ahmad Syahani",
+        title: routes[path],
+        tag: "",
+      };
+    }
+
+    return {
+      subtitle: "",
+      title: "",
+      tag: "",
+    };
   };
+
+  const details = getTransitionDetails(pathname);
 
   return (
     <>
@@ -118,17 +151,30 @@ export default function PageTransition({
         <GreetingLoader onComplete={handleGreetingComplete} />
       )}
 
-      {/* Standard Route Transition curtain ONLY for subpage navigation (About, Projects, Project Details) */}
-      {!isHome && dimensions.width > 0 && (
+      {/* Route Transition Curtain with Dynamic Project Details */}
+      {!isHome && dimensions.width > 0 && details.title && (
         <div className="pointer-events-none fixed inset-0 z-[99999] h-screen w-screen">
-          <motion.p
+          <motion.div
             variants={textVariants}
             initial="initial"
             animate="exit"
-            className="absolute left-1/2 top-[40%] z-20 -translate-x-1/2 -translate-y-1/2 text-[24px] md:text-[32px] font-medium tracking-tight text-stone-100"
+            className="absolute left-1/2 top-[42%] z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center px-6"
           >
-            {getPageTitle(pathname)}
-          </motion.p>
+            {details.subtitle && (
+              <span className="mb-2.5 inline-block text-[11px] md:text-[12px] font-mono font-medium uppercase tracking-[0.2em] text-stone-400">
+                {details.subtitle}
+              </span>
+            )}
+            <h2 className="text-[28px] md:text-[44px] font-medium tracking-tight text-white leading-tight">
+              {details.title}
+            </h2>
+            {details.tag && (
+              <span className="mt-3 rounded-full border border-stone-700/80 bg-stone-800/80 px-3.5 py-1 text-[12px] font-medium text-stone-300 backdrop-blur-md">
+                {details.tag}
+              </span>
+            )}
+          </motion.div>
+
           <svg className="h-full w-full fill-stone-900">
             <motion.path
               variants={curveVariants}

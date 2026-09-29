@@ -4,9 +4,9 @@ export const personalInfo = {
   role: "Full Stack Developer",
   tagline: "Building products people love to use.",
   bio: "I design and build fast, reliable, and beautiful digital products — from architecture to UI. Based in Indonesia, I focus on crafting experiences that are both technically sound and visually refined.",
-  email: "ahmad@example.com",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  email: "ahmadsyahani06@gmail.com",
+  github: "https://github.com/ahmadsyahani",
+  linkedin: "https://www.linkedin.com/in/ahmad-syahani",
   location: "Indonesia",
   availability: "Open to work",
 };

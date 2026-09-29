@@ -1,0 +1,52 @@
+{
+  "reference": "https://affinitty.framer.website/",
+  "note": "Decorative reference assets used for the requested Affinitty-inspired redesign. Portfolio photos and project imagery come from the existing project.",
+  "assets": [
+    {
+      "file": "pen.webp",
+      "source": "https://framerusercontent.com/images/ywHiSyOD6QcOlm3jZgmHZcwnT2Y.png"
+    },
+    {
+      "file": "brain.webp",
+      "source": "https://framerusercontent.com/images/ZMQJ6vG1Sz9r06CEtQSmZ0rbYo0.png"
+    },
+    {
+      "file": "interaction.webp",
+      "source": "https://framerusercontent.com/images/PThbyRGjsjFqOgrHW0pM9MFYWg.png"
+    },
+    {
+      "file": "research.webp",
+      "source": "https://framerusercontent.com/images/fUOGkMjpaxheOKBADSKZMeXbCs.png"
+    },
+    {
+      "file": "prototype.webp",
+      "source": "https://framerusercontent.com/images/cQjRhc5LdTED0OKUohD8ZLRh0w.png"
+    },
+    {
+      "file": "motion.webp",
+      "source": "https://framerusercontent.com/images/NDCbcFqm7KpnEDqv5T17cjqzw.png"
+    },
+    {
+      "file": "rocket.webp",
+      "source": "https://framerusercontent.com/images/oAm6wEPMYbo31e7g9SfKwtNI.png"
+    },
+    {
+      "file": "lightbulb.webp",
+      "source": "https://framerusercontent.com/images/bMMZH91XfFQP9Y1D3y89NsX1Bc.png"
+    }
+  ],
+  "fonts": [
+    {
+      "file": "neue-montreal-medium.woff2",
+      "source": "https://framerusercontent.com/assets/6uIfYl8bnz9kOy3KOuV7PxhFPhA.woff2"
+    },
+    {
+      "file": "inter-regular.woff2",
+      "source": "https://framerusercontent.com/assets/GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2"
+    },
+    {
+      "file": "inter-medium.woff2",
+      "source": "https://framerusercontent.com/assets/UjlFhCnUjxhNfep4oYBPqnEssyo.woff2"
+    }
+  ]
+}
