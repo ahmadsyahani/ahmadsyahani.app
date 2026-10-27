@@ -55,7 +55,7 @@ export function Hero() {
 export function AboutIntro() {
   return <section id="about-intro" className="about-intro section-space">
     <DrawLabel color="green">More about me</DrawLabel>
-    <Frame className="statement" color="green"><p><CharacterReveal text="I’m a" /> <CharacterReveal className="statement-highlight" text="full stack developer" delay={.07} /> <CharacterReveal text="with a strong focus on building thoughtful interfaces and reliable, scalable digital products." delay={.3} /></p><Image className="bulb-sticker" src="/studio/lightbulb.webp" alt="" width={90} height={100} /><Image className="brain-sticker" src="/studio/brain.webp" alt="" width={86} height={86} /></Frame>
+    <Frame className="statement" color="green"><p><CharacterReveal text="I’m a" /> <CharacterReveal className="statement-highlight" text="full stack developer" delay={.07} /> <CharacterReveal text="with a strong focus on building thoughtful interfaces and reliable, scalable digital products." delay={.3} /></p><Image className="interface-sticker" src="/studio/interaction.webp" alt="" width={100} height={100} /><Image className="prototype-sticker" src="/studio/prototype.webp" alt="" width={110} height={90} /></Frame>
     <Reveal className="center-action"><Link className="outlined-button" href="/about-me"><span className="button-fill" aria-hidden="true"><i /><i /><i /></span><span className="button-label">Read my full story <ArrowRight size={17} /></span></Link></Reveal>
   </section>;
 }

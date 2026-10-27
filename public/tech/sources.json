@@ -1,0 +1,34 @@
+{
+  "collection": "Devicon",
+  "version": "v2.17.0",
+  "source": "https://github.com/devicons/devicon/tree/v2.17.0",
+  "icons": {
+    "react": "react/react-original.svg",
+    "nextjs": "nextjs/nextjs-original.svg",
+    "javascript": "javascript/javascript-original.svg",
+    "typescript": "typescript/typescript-original.svg",
+    "vue": "vuejs/vuejs-original.svg",
+    "php": "php/php-original.svg",
+    "go": "go/go-original-wordmark.svg",
+    "laravel": "laravel/laravel-original.svg",
+    "postgresql": "postgresql/postgresql-original.svg",
+    "flutter": "flutter/flutter-original.svg",
+    "kotlin": "kotlin/kotlin-original.svg",
+    "swift": "swift/swift-original.svg",
+    "rust": "rust/rust-original.svg",
+    "express": "express/express-original.svg",
+    "python": "python/python-original.svg",
+    "numpy": "numpy/numpy-original.svg",
+    "pandas": "pandas/pandas-original.svg",
+    "jupyter": "jupyter/jupyter-original.svg",
+    "scikitlearn": "scikitlearn/scikitlearn-original.svg",
+    "pytorch": "pytorch/pytorch-original.svg",
+    "tensorflow": "tensorflow/tensorflow-original.svg",
+    "matlab": "matlab/matlab-original.svg",
+    "mongodb": "mongodb/mongodb-original.svg"
+  },
+  "additionalSources": {
+    "arcgis": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/arcgis.svg",
+    "qgis": "https://raw.githubusercontent.com/qgis/QGIS/master/images/icons/qgis_icon.svg"
+  }
+}

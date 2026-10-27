@@ -182,12 +182,25 @@ export const skills = [
   "Next.js",
   "JavaScript",
   "TypeScript",
-  "PHP",
+  "Kotlin",
+  "Swift",
+  "Rust",
   "Go",
   "Laravel",
+  "Express.js",
   "PostgreSQL",
+  "MongoDB",
   "Flutter",
   "Vue",
+];
+
+// Add technologies you are currently learning here. Matching entries in
+// `skills` appear only under Still learning, rather than in both sections.
+export const learningSkills: string[] = [
+  "Python",
+  "TensorFlow",
+  "MATLAB",
+  "QGIS",
 ];
 
 // ── Navigation ─────────────────────────────────────────────────
