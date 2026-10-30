@@ -7,6 +7,9 @@
     "nextjs": "nextjs/nextjs-original.svg",
     "javascript": "javascript/javascript-original.svg",
     "typescript": "typescript/typescript-original.svg",
+    "tailwindcss": "tailwindcss/tailwindcss-original.svg",
+    "nodejs": "nodejs/nodejs-original.svg",
+    "framermotion": "framermotion/framermotion-original.svg",
     "vue": "vuejs/vuejs-original.svg",
     "php": "php/php-original.svg",
     "go": "go/go-original-wordmark.svg",
@@ -28,6 +31,7 @@
     "mongodb": "mongodb/mongodb-original.svg"
   },
   "additionalSources": {
+    "gsap": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gsap.svg",
     "arcgis": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/arcgis.svg",
     "qgis": "https://raw.githubusercontent.com/qgis/QGIS/master/images/icons/qgis_icon.svg"
   }

@@ -43,7 +43,7 @@ export function Hero() {
       <div className="intro-topline"><span>Intro</span><span className="availability"><i aria-hidden="true" />Available for work</span></div>
       <Frame className="hero-drawing-frame" color="blue"><span className="sr-only">Introduction</span></Frame>
       <div className="intro-card">
-          <div className="intro-portrait"><Image src="/studio/ahmad-portrait.webp" alt="Ahmad Syahani" fill sizes="(max-width: 700px) 90vw, 330px" preload /></div>
+          <div className="intro-portrait"><Image src="/studio/ahmad-coding.jpeg" alt="Ahmad on a laptop camera preview while coding at a cafe" fill sizes="(max-width: 700px) 90vw, 330px" preload /></div>
           <div className="intro-copy"><h1>Hey, I am<br />Ahmad Syahani</h1><p>I care about the details, the craft, and building things that people love to use.</p></div>
       </div>
       <div className="intro-bottomline"><span>Full stack developer, based in Indonesia</span><SocialLinks /></div>

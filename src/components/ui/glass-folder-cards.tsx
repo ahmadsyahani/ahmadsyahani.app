@@ -72,6 +72,7 @@ export type FolderMenuItem = {
 export type GlassFolderProps = {
   label?: string
   showLabel?: boolean
+  openOnHover?: boolean
   sticker?: string
   peekPapers?: boolean
   /** The second line. Defaults to the number of files, which rolls as you add. */
@@ -527,6 +528,7 @@ const SAMPLE_FILES: FolderFile[] = [
 export default function GlassFolder({
   label = "My Files",
   showLabel = true,
+  openOnHover = false,
   sticker,
   peekPapers = false,
   meta,
@@ -565,6 +567,7 @@ export default function GlassFolder({
   const [bump, setBump] = React.useState(0)
 
   const [interacted, setInteracted] = React.useState(false)
+  const pointerType = React.useRef("mouse")
   const [openState, setOpenState] = React.useState(defaultOpen)
   const open = openProp ?? openState
   const setOpen = React.useCallback(
@@ -714,6 +717,16 @@ export default function GlassFolder({
   return (
     <div
       ref={rootRef}
+      onPointerDownCapture={(event) => { pointerType.current = event.pointerType }}
+      onPointerEnter={(event) => {
+        if (openOnHover && event.pointerType === "mouse") setOpen(true)
+      }}
+      onPointerLeave={(event) => {
+        if (openOnHover && event.pointerType === "mouse" && !filesRef.current?.contains(document.activeElement)) setOpen(false)
+      }}
+      onBlur={(event) => {
+        if (openOnHover && !event.currentTarget.contains(event.relatedTarget) && !event.currentTarget.matches(":hover")) setOpen(false)
+      }}
       className={"gf-root" + (className ? " " + className : "")}
       data-tone={tone}
       data-open={open || undefined}
@@ -766,9 +779,9 @@ export default function GlassFolder({
               className="gf-hit"
               aria-expanded={open}
               aria-label={(open ? "Close " : "Open ") + label + ", " + count + (count === 1 ? " item" : " items")}
-              onClick={() => {
+              onClick={(event) => {
                 setMenuOpen(false)
-                setOpen(!open)
+                setOpen(openOnHover && event.detail > 0 && pointerType.current === "mouse" ? true : !open)
               }}
             />
             {sticker && <span className="gf-sticker" aria-hidden="true">{sticker}</span>}

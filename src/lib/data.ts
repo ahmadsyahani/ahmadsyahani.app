@@ -36,13 +36,13 @@ export const projects: Project[] = [
     category: "Web Application",
     year: "2026",
     role: "Full Stack Developer",
-    desc: "Aplikasi Sistem Informasi Manajemen kelas dan pencatatan keuangan berbasis Web",
+    desc: "A web application for classroom administration and financial record keeping, bringing everyday class information into one place.",
     image: "/project-ecommerce.jpg",
     tags: ["Next.js", "TypeScript", "Laravel", "TailwindCSS", "PostgreSQL"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     overview:
-      "Aplikasi Sistem Informasi Manajemen kelas dan pencatatan keuangan berbasis Web",
+      "MIS Bytes is a web-based information management project for classroom administration and financial records. It brings these two areas into a shared application, with the aim of making everyday class information easier to organise and review.\n\nMy role covers full-stack development. The listed stack combines Next.js and TypeScript with Laravel and PostgreSQL, while Tailwind CSS supports the interface. The project connects the work of presenting information on the web with the systems needed to store and manage it.",
     sections: [
       {
         label: "Problem",
@@ -65,13 +65,13 @@ export const projects: Project[] = [
     category: "Mobile Application",
     year: "2026",
     role: "Mobile Developer",
-    desc: "Aplikasi untuk pejadwalan belajar dan pencatatan keuangan kelas berbasis mobile",
+    desc: "A mobile application for study scheduling and classroom financial records, designed around everyday student activities.",
     image: "/project-mobile.jpg",
     tags: ["Flutter", "SQLite", "Dart"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     overview:
-      "A collaborative task management app for remote teams — merging project tracking with an activity feed to keep distributed members aligned across time zones.",
+      "Nexa App brings study scheduling and classroom financial records into a mobile application. Its focus is on two everyday needs: organising learning activities and keeping class-related financial information accessible from a phone.\n\nMy role is mobile development, using Flutter and Dart with SQLite. The project brings together interface development and local data storage within a mobile codebase, with the aim of keeping these everyday tasks straightforward to navigate.",
     sections: [
       {
         label: "Problem",
@@ -94,13 +94,13 @@ export const projects: Project[] = [
     category: "Portfolio and Company Profile",
     year: "2026",
     role: "Full Stack Developer",
-    desc: "Website untuk company profile untuk Pensmate",
+    desc: "A portfolio and company profile website for Pensmate, bringing its identity and work together in a clear online presentation.",
     image: "/project-analytics.jpg",
     tags: ["React", "NextJS", "PHP", "Redis", "ClickHouse"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     overview:
-      "Affordable, developer-friendly product analytics for B2B SaaS — without the vendor lock-in or complexity of tools like Mixpanel.",
+      "Pensmate Portfolio is a company profile and portfolio website for Pensmate. The project focuses on presenting the organisation and its work in one place, giving visitors a clear starting point for understanding its identity and online presence.\n\nMy contribution covers full-stack development. The listed technologies include React, Next.js, PHP, Redis, and ClickHouse. The website brings presentation and technical implementation together, with a focus on how company information is organised and communicated to visitors.",
     sections: [
       {
         label: "Problem",
@@ -123,13 +123,13 @@ export const projects: Project[] = [
     category: "Web Application",
     year: "2026",
     role: "Full Stack Developer",
-    desc: "Website untuk company profile untuk Pensmate",
+    desc: "A web project for Pensmate?s company profile, combining a public-facing presentation with full-stack development.",
     image: "/project-analytics.jpg",
     tags: ["React", "NextJS", "TailwindCSS", "Laravel"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     overview:
-      "A lightweight, self-hosted API management tool with endpoint documentation, authentication management, and a built-in request viewer — built for developers, by a developer.",
+      "Pensmate Core is a web project for Pensmate?s company profile. Its current scope centres on presenting company information through a web application, connecting the public-facing experience with the underlying implementation.\n\nMy role covers full-stack development with React, Next.js, Tailwind CSS, and Laravel. The project provides a place to bring interface structure, styling, and backend work together within the same development effort.",
     sections: [
       {
         label: "Problem",
@@ -182,12 +182,15 @@ export const skills = [
   "Next.js",
   "JavaScript",
   "TypeScript",
+  "Tailwind CSS",
+  "GSAP",
   "Kotlin",
-  "Swift",
+  "React Native",
   "Rust",
   "Go",
   "Laravel",
   "Express.js",
+  "Node.js",
   "PostgreSQL",
   "MongoDB",
   "Flutter",

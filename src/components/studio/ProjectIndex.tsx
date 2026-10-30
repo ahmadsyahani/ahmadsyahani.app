@@ -6,7 +6,7 @@ import GlassFolder from "@/components/ui/glass-folder-cards";
 import Link from "./Navigation";
 import type { Project } from "@/lib/data";
 
-function ProjectFolderCard({ project, index }: { project: Project; index: number }) {
+function ProjectFolderCard({ project }: { project: Project }) {
   const category = project.category === "Mobile Application" ? "mobile" : project.category.includes("Portfolio") ? "portfolio" : "web";
   const container = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(260);
@@ -26,7 +26,7 @@ function ProjectFolderCard({ project, index }: { project: Project; index: number
         showLabel={false}
         sticker={project.category === "Web Application" ? "Web app" : project.category === "Mobile Application" ? "Mobile app" : project.category.includes("Portfolio") ? "Portfolio" : project.category}
         peekPapers
-        width={width} action="none" appearDelay={350 + index * 100}
+        width={width} action="none" appear={false} openOnHover
         files={[
           { name: "Project details", meta: project.role, href: `/projects/${project.id}` },
           { name: project.title, meta: "Explore project", image: project.image, href: `/projects/${project.id}` },
@@ -42,7 +42,7 @@ function ProjectFolderCard({ project, index }: { project: Project; index: number
 
 export default function ProjectIndex({ projects }: { projects: Project[] }) {
   return <section aria-label="Project collection">
-    <p className="project-glass-hint">Open a folder to take a closer look.</p>
-    <div className="project-glass-grid">{projects.map((project, index) => <ProjectFolderCard project={project} index={index} key={project.id} />)}</div>
+    <p className="project-glass-hint">Hover or tap a folder to take a closer look.</p>
+    <div className="project-glass-grid">{projects.map(project => <ProjectFolderCard project={project} key={project.id} />)}</div>
   </section>;
 }

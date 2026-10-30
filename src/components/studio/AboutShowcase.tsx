@@ -11,8 +11,11 @@ const toolIcons: Record<string, string> = {
   "Next.js": "nextjs",
   JavaScript: "javascript",
   TypeScript: "typescript",
+  "Tailwind CSS": "tailwindcss",
+  GSAP: "gsap",
+  "Node.js": "nodejs",
   Kotlin: "kotlin",
-  Swift: "swift",
+  "React Native": "react",
   Rust: "rust",
   PHP: "php",
   Go: "go",
@@ -30,9 +33,9 @@ const toolIcons: Record<string, string> = {
 
 // Add new technologies to a category here; their display order follows `skills`.
 const toolCategories = [
-  { title: "Frontend", skills: ["React", "Next.js", "Vue", "JavaScript", "TypeScript"] },
-  { title: "Backend", skills: ["PHP", "Go", "Laravel", "Rust", "Express.js"] },
-  { title: "Mobile", skills: ["Flutter", "Kotlin", "Swift"] },
+  { title: "Frontend", skills: ["React", "Next.js", "Vue", "JavaScript", "TypeScript", "Tailwind CSS", "GSAP"] },
+  { title: "Backend", skills: ["PHP", "Go", "Laravel", "Rust", "Express.js", "Node.js"] },
+  { title: "Mobile", skills: ["Flutter", "Kotlin", "React Native"] },
   { title: "Database", skills: ["PostgreSQL", "MongoDB"] },
 ];
 

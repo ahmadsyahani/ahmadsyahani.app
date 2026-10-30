@@ -9,6 +9,9 @@ type WipePhase = "idle" | "cover" | "reveal";
 const COVER_MS = 680;
 const REVEAL_MS = 680;
 const NavigationContext = createContext<((href: string, replace?: boolean, scroll?: boolean) => void) | null>(null);
+const TransitionReadyContext = createContext(true);
+
+export function usePageTransitionReady() { return useContext(TransitionReadyContext); }
 
 export function NavigationProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -58,7 +61,9 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
   }, [router, finish]);
 
   return <NavigationContext.Provider value={navigate}>
+    <TransitionReadyContext.Provider value={phase === "idle"}>
     {children}
+    </TransitionReadyContext.Provider>
     <div className="page-wipe" data-phase={phase} aria-hidden="true">
       <span className="page-wipe-panel" />
       <span className="page-wipe-panel" />
