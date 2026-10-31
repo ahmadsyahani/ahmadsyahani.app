@@ -29,6 +29,7 @@ const toolIcons: Record<string, string> = {
   TensorFlow: "tensorflow",
   MATLAB: "matlab",
   QGIS: "qgis",
+  "Power BI": "powerbi",
 };
 
 // Add new technologies to a category here; their display order follows `skills`.
@@ -37,20 +38,21 @@ const toolCategories = [
   { title: "Backend", skills: ["PHP", "Go", "Laravel", "Rust", "Express.js", "Node.js"] },
   { title: "Mobile", skills: ["Flutter", "Kotlin", "React Native"] },
   { title: "Database", skills: ["PostgreSQL", "MongoDB"] },
+  { title: "AI/ML", skills: ["Python", "TensorFlow", "MATLAB"] },
+  { title: "Data & GIS", skills: ["QGIS", "Power BI"] },
 ];
 
 export default function AboutShowcase({ skills, learningSkills = [], experience }: { skills: string[]; learningSkills?: string[]; experience: Experience[] }) {
   const reducedMotion = useReducedMotion();
   const learningSet = new Set(learningSkills);
-  const currentSkills = skills.filter((skill) => !learningSet.has(skill));
+  const allSkills = [...new Set([...skills, ...learningSet])];
   const categorizedSkills = new Set(toolCategories.flatMap((category) => category.skills));
   const categories = [
     ...toolCategories.map((category) => ({
       title: category.title,
-      skills: currentSkills.filter((skill) => category.skills.includes(skill)),
+      skills: allSkills.filter((skill) => category.skills.includes(skill)),
     })),
-    { title: "Other tools", skills: currentSkills.filter((skill) => !categorizedSkills.has(skill)) },
-    { title: "Still learning", skills: [...learningSet] },
+    { title: "Other tools", skills: allSkills.filter((skill) => !categorizedSkills.has(skill)) },
   ].filter((category) => category.skills.length > 0);
 
   return <div className="about-content">
@@ -70,7 +72,7 @@ export default function AboutShowcase({ skills, learningSkills = [], experience 
               className="tech-category-title"
               variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: reducedMotion ? 0 : .35, ease: [.22, 1, .36, 1] }}
-            >{category.title}</motion.h3>
+            >{category.title}{category.skills.every((skill) => learningSet.has(skill)) && <span className="tech-learning-label">Still learning</span>}</motion.h3>
             <ul className="tech-stack">
               {category.skills.map((skill, index) => (
                 <motion.li
@@ -85,7 +87,7 @@ export default function AboutShowcase({ skills, learningSkills = [], experience 
                     : { type: "spring", stiffness: 260, damping: 22, delay: .12 + Math.min(index, 8) * .045 }}
                 >
                   {toolIcons[skill] && <Image src={`/tech/${toolIcons[skill]}.svg`} alt="" width={32} height={32} className="tech-stack-icon" />}
-                  <span>{skill}</span>
+                  <span>{skill}{!category.skills.every((item) => learningSet.has(item)) && learningSet.has(skill) && <small className="tech-learning-label">Still learning</small>}</span>
                 </motion.li>
               ))}
             </ul>

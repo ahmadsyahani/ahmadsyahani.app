@@ -31,6 +31,7 @@
     "mongodb": "mongodb/mongodb-original.svg"
   },
   "additionalSources": {
+    "powerbi": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/powerbi.svg",
     "gsap": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gsap.svg",
     "arcgis": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/arcgis.svg",
     "qgis": "https://raw.githubusercontent.com/qgis/QGIS/master/images/icons/qgis_icon.svg"

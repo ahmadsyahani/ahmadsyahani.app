@@ -204,6 +204,7 @@ export const learningSkills: string[] = [
   "TensorFlow",
   "MATLAB",
   "QGIS",
+  "Power BI",
 ];
 
 // ── Navigation ─────────────────────────────────────────────────
